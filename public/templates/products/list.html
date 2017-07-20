@@ -12,7 +12,7 @@
                 <tr ng-repeat="p in vm.allProducts">
                     <th scope="row">{{$index + 1}}</th>
                     <td>
-                        <a ui-sref="productsDetails({id: p.id})">{{p.name}}</a>
+                        <a ui-sref="productDetails({id: p.id})">{{p.name}}</a>
                     </td>
                     <td>{{p.price | currency:'$':2}}</td>
                 </tr>
