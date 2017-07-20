@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="form-group">
+        <a ui-sref="newInvoice" class="btn btn-link">Add new invoice</a>
+    </div>
+
+    <div class="col-xs-12" ng-init="vm.getInvoices()">
+        <div class="row">
+            <div class="col-xs-12" ng-init="vm.getCustomers()">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>ID</th>
+                            <th>TOTAL</th>
+                            <th>DISCOUNT %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="i in vm.allInvoices">
+                            <th scope="row">{{$index + 1}}</th>
+                            <td>
+                                <a ui-sref="invoiceDetails({id: i.id})">{{i.id}}</a>
+                            </td>
+                            <td>{{i.total | currency:'$':2}}</td>
+                            <td>{{i.discount | currency:'$':2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

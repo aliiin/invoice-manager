@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Invoice App</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css" >
+  </head>
+  <body>
+      <div ng-app="invoiceApp">
+          <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home">Invoice App</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  <li><a ui-sref="products" ui-sref-active="active">Products</a></li>
+                  <li><a ui-sref="customers" ui-sref-active="active">Customers</a></li>
+                  <li><a ui-sref="invoices" ui-sref-active="active">Invoices</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+            </div>
+          </nav>
+
+          <div class="container">
+            <ui-view></ui-view>
+          </div>
+      </div>
+
+    <!-- Vendor libraries -->
+    <script src="lib/vendor.min.js"></script>
+
+    <!-- Application Files -->
+    <script src="app.js"></script>
+  </body>
+</html>

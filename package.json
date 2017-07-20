@@ -1,0 +1,36 @@
+{
+  "name": "angular-invoice-app",
+  "version": "1.0.1",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-ui-router": "^0.4.2",
+    "body-parser": "1.15.2",
+    "bootstrap-sass": "^3.3.7",
+    "cors": "2.8.1",
+    "express": "~4.13.4",
+    "gulp": "^3.9.1",
+    "lodash": "latest",
+    "sequelize": "^3.20.0",
+    "sqlite3": "latest"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "init": "npm install",
+    "start": "node public/server.js"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "event-stream": "^3.3.4",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-htmlhint": "^0.3.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "q": "^1.5.0"
+  }
+}

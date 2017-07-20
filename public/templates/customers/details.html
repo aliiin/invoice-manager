@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12" ng-init="vm.getCustomerDetails()">
+        <div class="list-group products-list">
+          <div class="card-block">
+            <h4 class="card-title">{{vm.selectedCustomer.name}}</h4>
+            <p class="card-text">{{vm.selectedCustomer.address}}</p>
+            <p class="card-text">{{vm.selectedCustomer.phone}}</p>
+          </div>
+        </div>
+    </div>
+    <a ui-sref="customers" class="btn btn-link">Back to Customers list</a>
+</div>

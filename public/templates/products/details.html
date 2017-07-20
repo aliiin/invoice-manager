@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-xs-12" ng-init="vm.getProductDetails()" >
+        <div class="list-group products-list">
+          <div class="card-block">
+            <h4 class="card-title">{{vm.selectedProduct.name}}</h4>
+            <p class="card-text">{{vm.selectedProduct.price | currency:'$':2}}</p>
+          </div>
+
+        </div>
+    </div>
+    <a ui-sref="products" class="btn btn-link">Back to Products list</a>
+</div>

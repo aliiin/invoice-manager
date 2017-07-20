@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xs-12" ng-init="vm.getInvoiceDetails()">
+        <div>
+            <a ui-sref="invoices" class="btn btn-link">Back to Invoices list</a>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div>Total: {{vm.selectedInvoice.total | currency:'$'}}</div>
+                    <div>Discount: {{vm.selectedInvoice.discount | currency:'$'}}</div>
+                </div>
+                <div class="panel-footer">
+                    <div class="card-block" ng-if="vm.selectedInvoice.customer">
+                        <span class="text-danger">Customer: </span>
+                        <a ui-sref="customer({id: vm.selectedInvoice.customer.id})" class="btn btn-link">
+                            {{vm.selectedInvoice.customer.name}}
+                        </a>
+                    </div>
+
+                    <div class="list-group products-list">
+                        <a ui-sref="productDetails({id: p.id})" class="list-group-item" ng-repeat="p in vm.selectedInvoice.items">
+                            <span>{{p.name}} ({{p.price | currency:'$':2}})</span>
+                            <span class="badge badge-default badge-pill">{{p.quantity}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

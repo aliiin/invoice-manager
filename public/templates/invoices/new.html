@@ -1,0 +1,78 @@
+<div>
+    <h4>Start a new invoice by selecting a customer</h4>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 col-xs-12">
+        <div ng-init="vm.loadCustomers()">
+            <select class="form-control"
+                ng-options="c.name for c in vm.allCustomers"
+                ng-model="vm.selectedCustomer">
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 items-table" ng-if="vm.selectedCustomer">
+    <h4>Create new invoice for {{vm.selectedCustomer.name}}</h4>
+    <div class="row header">
+        <div class="col-xs-3">Item</div>
+        <div class="col-xs-2">Price</div>
+        <div class="col-xs-3">Quantity</div>
+        <div class="col-xs-2">Discount %</div>
+        <div class="col-xs-2 text-right">Total</div>
+    </div>
+    <div class="row invoice-item" ng-repeat="item in vm.invoice.items" ng-animate="'slide-down'">
+        <div class="col-xs-3 input-container">
+            <span>{{item.name}}</span>
+        </div>
+
+        <div class="col-xs-2 input-container">
+            <span>{{item.price | currency:'$'}}</span>
+        </div>
+
+        <div class="col-xs-3 input-container">
+            <input ng-model="item.quantity"
+                value="1"
+                ng-required
+                ng-validate="integer"
+                placeholder="Quantity"/>
+        </div>
+        <div class="col-xs-2 input-container">
+            <input ng-model="item.discount"
+                limit-to="2"
+                placeholder="Discount" />
+        </div>
+        <div class="col-xs-2 text-right input-container">
+            {{item.price * item.quantity * (100 - item.discount) / 100 | currency: '$': 2}}
+        </div>
+
+        <div class="remove-item-container pull-right">
+            <a ng-click="vm.removeProduct($index)" class="glyphicon glyphicon-remove text-danger"></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-10 text-right">Total:</div>
+        <div class="col-xs-2 text-right">{{vm.invoiceSubTotal() | currency: '$'}}</div>
+        <div class="text-right">
+            <button ng-click="vm.saveInvoice()" class="btn btn-primary" ng-show="vm.validInvoice">
+                SAVE INVOICE
+            </button>
+        </div>
+    </div>
+</div>
+
+<div ng-if="vm.selectedCustomer">
+    <h4>Pick a product</h4>
+
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <div ng-init="vm.getProducts()" >
+                <select class="form-control" ng-options="p.name for p in vm.allProducts" ng-model="vm.selectedProduct">
+                </select>
+            </div>
+        </div>
+        <button ng-click="vm.addProductToInvoice()" class="btn btn-default" ng-show="vm.selectedProduct">Add to invoice</button>
+    </div>
+</div>
