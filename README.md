@@ -1,3 +1,6 @@
+# Description
+AngularJs (front-end) + node.js + SQLite (backend ) invoice app
+
 # Dependencies
 
 - sqlite3
@@ -16,7 +19,6 @@
 `http://localhost:8000`
 
 # Schema
-This is not included in GIT
 
 ## Customers
 
